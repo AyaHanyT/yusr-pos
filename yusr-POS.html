@@ -1,0 +1,765 @@
+<html lang="ar" dir="rtl">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="https://yousser-plus.com/assets/img/favicon/favicon.ico">
+	<!-- Template Main CSS File -->
+
+	<link rel="stylesheet" href="assets/boxicons.css">
+	<link rel="stylesheet" href="https://yousser-plus.com/assets/vendor/css/core.css"
+		class="template-customizer-core-css">
+	<link rel="stylesheet" href="https://yousser-plus.com/assets/vendor/css/theme-default.css"
+		class="template-customizer-theme-css">
+	<link rel="stylesheet" href="https://yousser-plus.com/assets/landing/css/swiper-bundle.min.css">
+	<link href="assets/pos-style.css" rel="stylesheet">
+	<title>Yusr + POS</title>
+
+</head>
+
+<body>
+
+	<main>
+		<div class="pos-screen px-3 container-fluid">
+			<div class="row">
+				<div class="pos-left-scs col-xxl-4 col-lg-5 col-6">
+					<div class="top-nav my-3">
+						<div class="align-items-center justify-content-between row">
+							<div class="select-box col-6 pe-sm-1 position-relative">
+								<form class="d-flex">
+									<span class="">
+										<i class='bx bx-user'></i>
+									</span>
+									<select name="client">
+										<option selected value="default">walk in customer</option>
+										<option value="client-1">client</option>
+									</select>
+									<a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClient">
+										<i class='bx bx-user-plus'></i>
+									</a>
+								</form>
+							</div>
+							<div class="select-box col-6 pe-sm-1 position-relative">
+								<form class="d-flex">
+									<span class="">
+										<i class='bx bx-home'></i>
+									</span>
+									<select name="warehouse">
+										<option value="warehouse">warehouse</option>
+									</select>
+								</form>
+							</div>
+						</div>
+					</div>
+
+					<div class="left-content custom-card mb-3 p-3">
+						<div class="main-table overflow-auto mb-3">
+							<table class="mb-0 table table-borderless">
+								<thead class="position-sticky top-0">
+									<td> المنتج</td>
+									<td>الكمية</td>
+									<td>السعر</td>
+									<td>المجموع الفرعي</td>
+									<td></td>
+								</thead>
+								<tbody class="border-0">
+									<tr class="align-middle">
+										<td class="text-nowrap text-nowrap ps-0">
+											<h4 class="product-name text-gray-900 mb-1 text-capitalize text-truncate">
+												منتج
+											</h4>
+											<span class="product-sku" data-bs-toggle="modal"
+												data-bs-target="#editProduct">
+												<i class='bx bxs-edit'></i>
+												<span class="badge bg-light-info sku-badge">1588</span>
+											</span>
+										</td>
+										<td>
+											<div class="plus-minus-input counter">
+												<button type="button" class="button btn btn-primary decrement">
+													-
+												</button>
+												<input class="quantity" type="number" name="quantity" value="1" min="1">
+												<button type="button" class="button btn btn-primary increment">
+													+
+												</button>
+
+											</div>
+										</td>
+										<td class="text-nowrap">SR
+											<input class="border-0 piece-price" value="125" readonly>
+										</td>
+										<td class="text-nowrap">SR
+											<input class="border-0 pieces-total" value="125" readonly>
+										</td>
+										<td class="text-end remove-button pe-0">
+											<button type="button" class="remove p-0 bg-transparent border-0 btn">
+												<i class='bx bx-trash red'></i>
+											</button>
+										</td>
+									</tr>
+
+									<tr class="align-middle">
+										<td class="text-nowrap text-nowrap ps-0">
+											<h4 class="product-name text-gray-900 mb-1 text-capitalize text-truncate">
+												منتج
+											</h4>
+											<span class="product-sku" data-bs-toggle="modal"
+												data-bs-target="#editProduct">
+												<i class='bx bxs-edit'></i>
+												<span class="badge bg-light-info sku-badge">1588</span>
+											</span>
+										</td>
+										<td>
+											<div class="plus-minus-input counter">
+												<button type="button" class="button btn btn-primary decrement">
+													-
+												</button>
+												<input class="quantity" type="number" name="quantity" value="1" min="1">
+												<button type="button" class="button btn btn-primary increment">
+													+
+												</button>
+
+											</div>
+										</td>
+										<td class="text-nowrap">SR
+											<input class="border-0 piece-price" value="120" readonly>
+										</td>
+										<td class="text-nowrap">SR
+											<input class="border-0 pieces-total" value="120" readonly>
+										</td>
+										<td class="text-end remove-button pe-0">
+											<button type="button" class="remove p-0 bg-transparent border-0 btn">
+												<i class='bx bx-trash red'></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+						</div>
+						<div class="total-price row">
+							<div class="col-6 mb-3">
+								<div class="mb-2">
+									<div class="d-flex align-items-center">
+										<input name="tax" min="0" step=".01" placeholder="ضريبة" type="text" id="tax"
+											class="pe-8 form-control" value="">
+										<span class="position-absolute left-24">
+											%
+										</span>
+									</div>
+								</div>
+
+								<div class="mb-2">
+									<div class="d-flex align-items-center">
+										<input name="discount" min="0" step=".01" placeholder="خصم" type="text"
+											id="discount" class="pe-8 form-control" value="">
+										<span class="position-absolute left-24">
+											SR
+										</span>
+									</div>
+								</div>
+
+								<div class="mb-2">
+									<div class="d-flex align-items-center">
+										<input name="shipping" min="0" step=".01" placeholder="الشحن" type="text"
+											id="shipping" class="pe-8 form-control" value="">
+										<span class="position-absolute left-24">
+											SR
+										</span>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-6 mb-3 totals">
+								<h5 class="text-gray d-flex">إجمالي الكمية :
+									<input class="border-0" value="" id="total-quantity" readonly>
+								</h5>
+								<h5 class="text-gray d-flex"> المجموع الفرعي :
+									<input class="border-0" value="" id="total-products" readonly>
+									SR
+								</h5>
+								<h4 class="d-flex text-black">المجموع :
+									<input class="border-0" value="" id="all-total" readonly>
+									SR
+								</h4>
+							</div>
+						</div>
+
+						<div class="d-flex align-items-center justify-content-between">
+							<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+								data-bs-target="#cancelModal">
+								إلغاء
+							</button>
+
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+								data-bs-target="#confirmModal">
+								ادفع الآن
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="ps-lg-0 pos-right-scs col-xxl-8 col-lg-7 col-6">
+					<div class="right-content">
+						<div class="back">
+							<nav class="layout-navbar navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+								id="layout-navbar">
+								<div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+									<form class="mb-0" id="search-form" action="https://yousser-plus.com/admin/search"
+										method="GET">
+										<input type="hidden" name="_token"
+											value="sTS35yuAmG4xBllvZRK7Hy6OZRzJCsuU5xwPyldi" autocomplete="off">
+										<div class="navbar-nav align-items-center">
+											<div class="nav-item d-flex align-items-center">
+												<i class="bx bx-search fs-4 lh-0"></i>
+												<input type="text" class="form-control border-0 shadow-none"
+													name="query" placeholder="Search..." aria-label="Search...">
+											</div>
+										</div>
+									</form>
+								</div>
+							</nav>
+
+							<div class="dashborad-toggle btn btn-primary">
+								<i class='bx bx-menu'></i>
+							</div>
+						</div>
+
+						<div class="custom-card h-100">
+							<div class="p-3">
+								<div class="button-list mb-2 d-flex flex-nowrap nav">
+									<div class="me-2 nav-item">
+										<button type="button" class="btn btn-light active text-white">
+											جميع
+											الفئات
+										</button>
+									</div>
+									<div dir="rtl" class="swiper-container categorySwiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!-- sub categories -->
+								<div class="button-list d-flex flex-nowrap nav">
+									<div class="me-2 nav-item">
+										<button type="button" class="btn btn-light active text-white">
+											الجميع
+										</button>
+									</div>
+									<div dir="rtl" class="swiper-container sub-catSwiper">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+											<div class="swiper-slide">
+												<button type="button" class="btn btn-light">
+													الصيانة
+												</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="product-list-block pt-1">
+								<div class="d-flex flex-wrap">
+									<div class="product-custom-card">
+										<div class="h-100 card">
+											<img src="assets/pc-case.png" class="card-img-top">
+											<div class="custom-card-body card-body">
+												<h6 class="product-title mb-0 text-gray-900">كرت شاشة</h6>
+												<span class="fs-small text-gray-700">
+													1588
+												</span>
+												<p class="m-0 item-badges">
+													<span class="product-custom-card__card-badge badge text-white bg-info">
+														172
+														piece
+													</span>
+												</p>
+												<p class="m-0 item-badge">
+													<span
+														class="product-custom-card__card-badge badge text-white bg-primary">SR
+														125.00
+													</span>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</main>
+
+
+	<!-- ADD User Modal -->
+	<div class="modal fade" id="addClient" tabindex="-1" aria-labelledby="addClientLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addClientLabel">إضافة عميل</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form class="row">
+						<div class="col-sm-6 mb-3">
+							<label>الأسم <i class="red">*</i></label>
+							<input type="text" class="form-control" required placeholder="الأسم">
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>البريد الالكتروني <i class="red">*</i></label>
+							<input type="email" class="form-control" required placeholder="البريد الالكتروني">
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>رقم الجوال <i class="red">*</i></label>
+							<input type="tel" class="form-control" required placeholder="رقم الجوال">
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label> البلد<i class="red">*</i></label>
+							<input type="text" class="form-control" required placeholder="البلد">
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label> المدينة <i class="red">*</i></label>
+							<input type="text" class="form-control" required placeholder="المدينة">
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label> العنوان <i class="red">*</i></label>
+							<input type="text" class="form-control" required placeholder="العنوان">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">حفظ</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- edit product Modal -->
+	<div class="modal fade" id="editProduct" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="editProductLabel">تعديل منتج</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form class="row">
+						<div class="col-sm-6 mb-3">
+							<label>سعر المنتج </label>
+							<div class="d-flex align-items-center">
+								<input type="number" class="form-control" required placeholder="">
+								<span class="position-absolute left-24">
+									SR
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>نوع الضريبة</label>
+							<select class="form-select" name="product-tax">
+								<option selected for="product-tax" value="1">شامل</option>
+								<option for="product-tax" value="2">حصرية</option>
+							</select>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>
+								الضريبة
+							</label>
+							<div class="d-flex align-items-center">
+								<input type="number" class="form-control" required placeholder="">
+								<span class="position-absolute left-24">
+									%
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>نوع الخصم</label>
+							<select class="form-select" name="product-dis">
+								<option selected for="product-dis" value="1">نسبة مئوية</option>
+							</select>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>الخصم</label>
+							<div class="d-flex align-items-center">
+								<input type="number" class="form-control" required placeholder="">
+								<span class="position-absolute left-24">
+									%
+								</span>
+							</div>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<label>الوحدة</label>
+							<select class="form-select" name="product-unit">
+								<option selected for="product-unit" value="1">كك</option>
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">حفظ</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- cancel Modal -->
+	<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-sm">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5 class="modal-title" id="cancelModalLabel">إلغاء الطلب</h5>
+				</div>
+				<div class="modal-body d-flex flex-column align-items-center">
+					<h1 class='bx bx-revision red fs-1'></h1>
+					<p>هل انت متأكد انك تريد إلغاء هذا الطلب؟</p>
+				</div>
+				<div class="modal-footer justify-content-center">
+					<button type="button" class="btn btn-danger">نعم اريد الالغاء</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">لا</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- confirm Modal -->
+	<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="confirmModalLabel">تأكيد الدفع</h5>
+
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-8 col-12">
+							<div class="row">
+								<div class="mb-3 col-6">
+									<label for="received_amount">المبلغ الذي تسلمه: </label>
+									<input min="0" name="received_amount" autocomplete="off" type="number"
+										class="received_amount form-control disabled" readonly value="">
+								</div>
+								<div class="mb-3 col-6">
+									<label for="paying_amount">مبلغ الدفع : </label>
+									<input min="0" name="paying_amount" autocomplete="off" type="number"
+										class="received_amount form-control" disabled value="">
+								</div>
+								<div class="mb-3 col-6">
+									<label for="">تغيير العوده: </label>
+									<input min="0" name="" autocomplete="off" type="number" id="" class="form-control"
+										disabled value="">
+								</div>
+								<div class="mb-3 col-6">
+									<label>نوع الدفع</label>
+									<select class="form-select" name="pay-type">
+										<option selected value="1">نقدي</option>
+										<option value="2">تحويل بنكي</option>
+										<option value="2">شيك</option>
+									</select>
+								</div>
+								<div class="mb-3 col-12">
+									<label>ملاحظات</label>
+									<textarea class="form-control" placeholder="ملاحظات" rows="2"></textarea>
+								</div>
+								<div class="mb-3 col-12">
+									<label>حالة الدفع</label>
+									<select class="form-select" name="pay-status">
+										<option selected value="1">غير مدفوع</option>
+										<option value="2">مدفوع</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-12">
+							<div class="card custom-cash-card">
+								<div class="card-body p-6">
+									<table class="mb-0 text-nowrap table table-striped table-borderless">
+										<tr>
+											<td scope="row" class="ps-3">إجمالي المنتجات</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0" id="total-qty" value="" readonly>
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td scope="row" class="ps-3">
+												المبلغ الاجمالي
+											</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0 pro-total" value="" readonly>
+													SR
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td scope="row" class="ps-3">
+												ضريبة الطلب
+											</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0" id="tax-amount" value="" readonly>
+													%
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td scope="row" class="ps-3">
+												الخصم
+											</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0" id="dis-amount" value="" readonly>
+												</span>
+												SR
+											</td>
+										</tr>
+										<tr>
+											<td scope="row" class="ps-3">
+												الشحن
+											</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0" id="ship-amount" value="" readonly>
+													SR
+												</span>
+											</td>
+										</tr>
+										<tr>
+											<td scope="row" class="ps-3">
+												المبلغ الاجمالي
+											</td>
+											<td class="px-3">
+												<span class="p-2">
+													<input class="border-0 received_amount" value="" readonly>
+													SR
+												</span>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">تأكيد</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://yousser-plus.com/assets/vendor/js/bootstrap.js"></script>
+	<script src="https://yousser-plus.com/assets/landing/js/swiper-bundle.min.js"></script>
+	<script>
+		$(document).ready(function () {
+
+			function updateTotalQuantity() {
+				var quantities = $('.quantity').map(function () {
+					return parseInt($(this).val());
+				}).get();
+				var sum = quantities.reduce(function (accumulator, currentValue) {
+					return accumulator + currentValue;
+				}, 0);
+				$('#total-quantity , #total-qty').val(sum);
+			}
+			updateTotalQuantity();
+
+
+			$('#discount').on('input', function () {
+				updateTotalProducts();
+				calculateAllTotal();
+			});
+
+			function updateTotalProducts() {
+				var prices = $('.pieces-total').map(function () {
+					return parseFloat($(this).val());
+				}).get();
+
+				var sum = prices.reduce(function (accumulator, currentValue) {
+					return accumulator + currentValue;
+				}, 0);
+
+				var discount = parseFloat($('#discount').val());
+				// Check if the discount input has a value
+				if (!isNaN(discount)) {
+					$('#dis-amount').val(discount.toFixed(2));
+					sum -= discount;
+				}
+				$('#total-products , .pro-total').val(sum.toFixed(2));
+				calculateAllTotal();
+			}
+			updateTotalProducts();
+
+
+			// Listen for changes to the tax input
+			$('#tax').on('input', function () {
+				calculateAllTotal();
+			});
+			// Listen for changes to the shipping input
+			$('#shipping').on('input', function () {
+				calculateAllTotal();
+			});
+
+			// Calculate the sum of total-products and tax and update the all-total input
+			function calculateAllTotal() {
+				var totalProducts = parseFloat($('#total-products').val());
+				// Set the all-total input to the total-products input value by default
+				let allTotal = totalProducts;
+				$('#all-total').val(allTotal.toFixed(2));
+
+				var tax = parseFloat($('#tax').val()) / 100;
+				if (!isNaN(tax)) {
+					$('#tax-amount').val(tax.toFixed(2));
+					allTotal = totalProducts * (1 + tax);
+					$('#all-total').val(allTotal.toFixed(2));
+				}
+
+				var shipping = parseFloat($('#shipping').val());
+				if (!isNaN(shipping)) {
+					$('#ship-amount').val(shipping.toFixed(2));
+					allTotal += shipping;
+					$('#all-total').val(allTotal.toFixed(2));
+				}
+				$('.received_amount').val(allTotal.toFixed(2));
+			}
+			updateTotalProducts();
+			calculateAllTotal();
+
+
+			// Listen for clicks on increment and decrement buttons
+			$('button.increment, button.decrement').on('click', function () {
+				// Get the current row
+				var $row = $(this).closest('tr');
+				var $quantityInput = $row.find('input.quantity');
+				var quantity = parseInt($quantityInput.val());
+				if ($(this).hasClass('increment')) {
+					quantity++;
+				} else {
+					quantity = Math.max(1, quantity - 1);
+				}
+				$quantityInput.val(quantity);
+				var piecePrice = parseFloat($row.find('input.piece-price').val());
+				var subtotal = piecePrice * quantity;
+				$row.find('input.pieces-total').val(subtotal.toFixed(2));
+				updateTotalQuantity();
+				updateTotalProducts();
+			});
+
+			$(".remove").on('click', function () {
+				// Get the current row
+				var $row = $(this).closest('tr');
+				// Get the quantity input
+				$(this).closest('tr').find('.pieces-quantity').val(0);
+				$(this).closest('tr').find('.piece-price').val(0);
+				$(this).parents("tr").remove();
+				updateTotalQuantity();
+				updateTotalProducts();
+				updateTotalQuantity();
+			})
+		});
+
+
+
+	</script>
+
+	<script>
+		var swiper = new Swiper(".categorySwiper", {
+			slidesPerView: 7,
+			spaceBetween: 0,
+			grabCursor: true,
+		});
+
+
+		var swiper = new Swiper(".sub-catSwiper", {
+			slidesPerView: 7,
+			spaceBetween: 0,
+			grabCursor: true,
+		});
+	</script>
+</body>
+
+</html>
